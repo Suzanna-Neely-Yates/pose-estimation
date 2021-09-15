@@ -24,8 +24,23 @@ function modelLoaded() {
 function draw() {
     image(video, 0, 0);
     if (pose) {
+
+        // Nose
         fill(255, 0, 0);
-        ellipse(pose.nose.x, pose.nose.y, 64);
+        ellipse(pose.nose.x, pose.nose.y, 50);
+
+        // Left Eye
+        fill(49, 57, 171)
+        rect(pose.leftEye.x - 12, pose.rightEye.y - 20, 40, 40);
+
+        // Right Eye
+        fill(196, 82, 177)
+        translate(pose.rightEye.x, pose.rightEye.y);
+        noStroke();
+        for (let i = 0; i < 10; i++) {
+            ellipse(0, 10, 10, 40);
+            rotate(PI / 5);
+        }
     }
 }
 
